@@ -1,0 +1,7 @@
+{
+  "name": "Image Compressor",
+  "icon": "Im",
+  "desc": "Shrink JPG, PNG and WebP files right in your browser. Nothing is uploaded.",
+  "status": "live",
+  "order": 10
+}

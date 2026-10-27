@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://img.shaikhismail.com/sitemap.xml

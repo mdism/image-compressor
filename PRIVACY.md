@@ -1,6 +1,6 @@
 # Privacy policy: Image Compressor
 
-Live page: https://img.shaikhismail.com/privacy.html
+Live page: https://tools.shaikhismail.com/image-compressor/privacy.html
 
 ## The short version
 

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image Compressor — Ismail Shaikh</title>
+<meta name="description" content="Free image compressor. Shrink JPG, PNG and WebP files in your browser. Nothing is uploaded.">
+<link rel="canonical" href="https://img.shaikhismail.com/">
+<meta property="og:title" content="Image Compressor — free, private, in your browser">
+<meta property="og:description" content="Shrink JPG and PNG files right in your browser. Nothing is uploaded.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23155E3B'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='%23F5821F' font-family='monospace' font-weight='bold'>i</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tool.css?v=1.0.0">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://shaikhismail.com/"><span class="logo">i</span>Image Compressor <small>by Ismail</small></a>
+    <nav>
+      <a class="hide-sm" href="https://shaikhismail.com/tools/">All tools</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle theme">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap stack">
+    <div>
+      <div class="prompt" aria-hidden="true"><span class="u">guest</span>@<span class="d">img</span>:~$ compress *.jpg</div>
+      <h1>Image Compressor</h1>
+      <p class="lead">Shrink JPG, PNG and WebP images for email, websites and forms. Everything happens in your browser, so your photos never leave your device.</p>
+      <span class="privacy">● No upload · works offline once loaded</span>
+    </div>
+
+    <div class="card stack">
+      <div class="grid-2">
+        <div>
+          <label class="f" for="quality">Quality: <b id="qualityOut">75</b>%</label>
+          <input id="quality" type="range" min="10" max="95" step="5" value="75">
+          <div class="muted" style="font-size:12px">Lower = smaller file. 60–80 looks good for most photos.</div>
+        </div>
+        <div class="row">
+          <div>
+            <label class="f" for="maxW">Max width (px)</label>
+            <input id="maxW" type="number" min="0" placeholder="Keep original" inputmode="numeric">
+          </div>
+          <div>
+            <label class="f" for="format">Save as</label>
+            <select id="format">
+              <option value="auto">Same as original</option>
+              <option value="image/jpeg">JPG</option>
+              <option value="image/webp">WebP (smallest)</option>
+              <option value="image/png">PNG</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <label class="drop" id="drop">
+        <input type="file" accept="image/jpeg,image/png,image/webp" multiple>
+        <strong>Drop images here or tap to choose</strong>
+        <span class="muted">JPG, PNG or WebP · as many as you like</span>
+      </label>
+    </div>
+
+    <div class="card" id="results" hidden>
+      <div class="row" style="align-items:center;margin-bottom:8px">
+        <div><h2 style="font-size:16px;margin:0">Results</h2><div class="muted" id="summary" style="font-size:12px"></div></div>
+        <div class="actions" style="justify-content:flex-end;flex:0 0 auto">
+          <button class="btn" id="clearBtn" type="button">Clear</button>
+          <button class="btn primary" id="zipBtn" type="button">Download all (.zip)</button>
+        </div>
+      </div>
+      <ul class="list" id="list"></ul>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> <a href="https://shaikhismail.com/">Mohammed Ismail Shaikh</a> · free and open source</span>
+    <span><a href="https://shaikhismail.com/tools/">More free tools</a></span>
+  </div>
+</footer>
+
+<script src="assets/js/common.js?v=1.0.0"></script>
+<script src="assets/vendor/fflate.min.js"></script>
+<script src="assets/js/app.js?v=1.0.0"></script>
+</body>
+</html>

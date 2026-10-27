@@ -1,6 +1,6 @@
 /* Image Compressor: re-encodes images on a canvas with the chosen quality, size and format. */
 (function () {
-  const { dropZone, formatBytes, download, baseName } = window.Tool;
+  const { dropZone, formatBytes, download, baseName, vetFiles, say } = window.Tool;
   const $ = s => document.querySelector(s);
 
   const quality = $('#quality'), qualityOut = $('#qualityOut');
@@ -14,11 +14,17 @@
   // Re-run everything when settings change, so the preview sizes stay honest.
   [quality, maxW, format].forEach(el => el.addEventListener('change', () => recompressAll()));
 
-  dropZone($('#drop'), files => {
-    files.filter(f => /^image\/(jpeg|png|webp)$/.test(f.type)).forEach(addFile);
+  const msg = $('#msg');
+  dropZone($('#drop'), async files => {
+    const { ok, problems } = await vetFiles(files, { kinds: ['jpeg', 'png', 'webp'], maxMB: 40, maxCount: 100 - items.length });
+    say(msg, problems.join(' '));
+    ok.forEach(addFile);
   });
 
-  $('#clearBtn').addEventListener('click', () => { items = []; list.innerHTML = ''; results.hidden = true; });
+  $('#clearBtn').addEventListener('click', () => {
+    list.querySelectorAll('img').forEach(i => URL.revokeObjectURL(i.src)); // free memory right away
+    items = []; list.textContent = ''; results.hidden = true; say(msg, '');
+  });
   $('#zipBtn').addEventListener('click', () => {
     const ready = items.filter(i => i.blob);
     if (!ready.length) return;
@@ -83,11 +89,14 @@
       item.name = `${baseName(item.file.name)}-compressed.${EXT[blob.type] || EXT[outType] || 'img'}`;
 
       const saved = 1 - blob.size / item.file.size;
-      const pct = saved > 0 ? `<span class="good">−${Math.round(saved * 100)}%</span>` : `<span class="warn">+${Math.round(-saved * 100)}%</span>`;
-      meta.innerHTML = `${formatBytes(item.file.size)} → ${formatBytes(blob.size)} ${pct} · ${w}×${h}${note}`;
+      const pct = document.createElement('span');
+      pct.className = saved > 0 ? 'good' : 'warn';
+      pct.textContent = saved > 0 ? `−${Math.round(saved * 100)}%` : `+${Math.round(-saved * 100)}%`;
+      meta.textContent = `${formatBytes(item.file.size)} → ${formatBytes(blob.size)} `;
+      meta.append(pct, ` · ${w}×${h}${note}`);
       btn.disabled = false;
     } catch (e) {
-      meta.innerHTML = `<span class="err">Could not read this image.</span>`;
+      meta.textContent = 'Could not read this image.'; meta.className = 'meta err';
     }
     updateSummary();
   }
@@ -95,9 +104,10 @@
   function loadImage(file) {
     return new Promise((resolve, reject) => {
       const img = new Image();
-      img.onload = () => resolve(img);
-      img.onerror = reject;
-      img.src = URL.createObjectURL(file);
+      const url = URL.createObjectURL(file);
+      img.onload = () => { URL.revokeObjectURL(url); resolve(img); };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('decode')); };
+      img.src = url;
     });
   }
 

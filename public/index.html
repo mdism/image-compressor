@@ -5,13 +5,27 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://*.workers.dev; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Image Compressor — Ismail Shaikh</title>
-<meta name="description" content="Free image compressor. Shrink JPG, PNG and WebP files in your browser. Nothing is uploaded.">
+<!-- seo -->
+<title>Image Compressor: Compress JPG, PNG &amp; WebP Online Free (No Upload)</title>
+<meta name="description" content="Compress JPG, PNG and WebP images online for free. Reduce image file size in your browser with no upload, no sign-up and no watermark.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://tools.shaikhismail.com/image-compressor/">
-<meta property="og:title" content="Image Compressor — free, private, in your browser">
-<meta property="og:description" content="Shrink JPG and PNG files right in your browser. Nothing is uploaded.">
+<meta name="author" content="Mohammed Ismail Shaikh">
+<meta name="theme-color" content="#155E3B">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Free tools by Ismail Shaikh">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://tools.shaikhismail.com/image-compressor/">
+<meta property="og:title" content="Image Compressor: Compress JPG, PNG &amp; WebP Online Free (No Upload)">
+<meta property="og:description" content="Compress JPG, PNG and WebP images online for free. Reduce image file size in your browser with no upload, no sign-up and no watermark.">
+<meta property="og:image" content="https://tools.shaikhismail.com/image-compressor/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Image Compressor","url":"https://tools.shaikhismail.com/image-compressor/","description":"Compress JPG, PNG and WebP images online for free. Reduce image file size in your browser with no upload, no sign-up and no watermark.","applicationCategory":"MultimediaApplication","operatingSystem":"Any (runs in your web browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"featureList":["Compress JPG, PNG and WebP","Choose quality and maximum width","Convert to WebP or JPG","Batch of up to 100 images","Download all as .zip"],"image":"https://tools.shaikhismail.com/image-compressor/assets/og.png","inLanguage":"en","author":{"@type":"Person","name":"Mohammed Ismail Shaikh","url":"https://shaikhismail.com/"},"publisher":{"@type":"Person","name":"Mohammed Ismail Shaikh","url":"https://shaikhismail.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shaikhismail.com/"},{"@type":"ListItem","position":2,"name":"Free tools","item":"https://tools.shaikhismail.com/"},{"@type":"ListItem","position":3,"name":"Image Compressor","item":"https://tools.shaikhismail.com/image-compressor/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are my images uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The images are compressed by your own browser and never leave your device. Nothing is saved, and anything held while working is deleted when you close the tab."}},{"@type":"Question","name":"How much smaller will my images get?","acceptedAnswer":{"@type":"Answer","text":"Photos usually shrink by 50 to 80 percent at quality 75 with little visible change. Saving as WebP often gives the smallest files."}},{"@type":"Question","name":"Is there a limit?","acceptedAnswer":{"@type":"Answer","text":"You can compress up to 100 images at a time, each up to 40 MB. It is free, with no watermark and no sign-up."}}]}]}</script>
+<!-- /seo -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23155E3B'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='%23F5821F' font-family='monospace' font-weight='bold'>i</text></svg>">
-<link rel="stylesheet" href="assets/css/tool.css?v=1.4.0">
+<link rel="stylesheet" href="assets/css/tool.css?v=1.5.0">
 </head>
 <body>
 <header class="top">
@@ -26,10 +40,16 @@
 
 <main>
   <div class="wrap stack">
+<!-- crumbs -->
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="https://shaikhismail.com/">Home</a></li><li><a href="/">Free tools</a></li><li aria-current="page">Image Compressor</li></ol></nav>
+<!-- /crumbs -->
     <div>
       <div class="prompt" aria-hidden="true"><span class="u">guest</span>@<span class="d">img</span>:~$ compress *.jpg</div>
       <h1>Image Compressor</h1>
       <p class="lead">Shrink JPG, PNG and WebP images for email, websites and forms. Everything happens in your browser, so your photos never leave your device.</p>
+<!-- flow -->
+      <ol class="flow" aria-label="How it works"><li><b>Input</b>JPG, PNG or WebP images</li><li class="arrow" aria-hidden="true">→</li><li><b>Process</b>Shrinks them in your browser at the quality and width you pick</li><li class="arrow" aria-hidden="true">→</li><li><b>Output</b>Smaller images, one by one or all in a .zip</li></ol>
+<!-- /flow -->
       <div class="notice" role="note"><span class="ico" aria-hidden="true">✓</span><div><strong>We save nothing.</strong> Your images are processed on your device and never uploaded. Anything held while processing is temporary and is deleted as soon as it is done, or when you close the tab.<p>No sign-up, no analytics, no ads. <a href="privacy.html">Privacy policy</a></p></div></div>
     </div>
 
@@ -80,18 +100,26 @@
       <ul class="list" id="list"></ul>
     </div>
     </div>
+<!-- faq -->
+    <section class="card faq" aria-labelledby="faqTitle">
+      <h2 id="faqTitle">Questions</h2>
+      <details><summary>Are my images uploaded?</summary><p>No. The images are compressed by your own browser and never leave your device. Nothing is saved, and anything held while working is deleted when you close the tab.</p></details>
+      <details><summary>How much smaller will my images get?</summary><p>Photos usually shrink by 50 to 80 percent at quality 75 with little visible change. Saving as WebP often gives the smallest files.</p></details>
+      <details><summary>Is there a limit?</summary><p>You can compress up to 100 images at a time, each up to 40 MB. It is free, with no watermark and no sign-up.</p></details>
+    </section>
+<!-- /faq -->
   </div>
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <span>&copy; <span id="yr">2026</span> <a href="https://shaikhismail.com/">Mohammed Ismail Shaikh</a> · <a class="ver" id="ver" href="https://github.com/mdism/image-compressor/blob/main/CHANGELOG.md" target="_blank" rel="noopener" title="What changed in this version">v1.4.0</a> · free and open source</span>
+    <span>&copy; <span id="yr">2026</span> <a href="https://shaikhismail.com/">Mohammed Ismail Shaikh</a> · <a class="ver" id="ver" href="https://github.com/mdism/image-compressor/blob/main/CHANGELOG.md" target="_blank" rel="noopener" title="What changed in this version">v1.5.0</a> · free and open source</span>
     <span><a href="privacy.html">Privacy</a> · <a href="/">More free tools</a></span>
   </div>
 </footer>
 
-<script src="assets/js/common.js?v=1.4.0"></script>
+<script src="assets/js/common.js?v=1.5.0"></script>
 <script src="assets/vendor/fflate.min.js"></script>
-<script src="assets/js/app.js?v=1.4.0"></script>
+<script src="assets/js/app.js?v=1.5.0"></script>
 </body>
 </html>
